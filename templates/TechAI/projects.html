@@ -1,0 +1,16 @@
+{% extends 'TechAI/base.html' %}
+
+{% block content %}
+    {% for project in projects %}
+        <div>
+            <h2>
+                <a href="{% url 'TechAI:project-detail' slug=project.slug %}">
+                    {{ project.title }}
+                </a>
+            </h2>
+            <p>{{ project.description }}</p>
+        </div>
+    {% empty %}
+        <h1>No projects.</h1>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TechAI</title>
+</head>
+<body>
+<nav>
+    <h1>TechAI</h1>
+    <a href="{% url 'TechAI:home' %}">Home</a>
+    <a href="{% url 'TechAI:projects' %}">Projects</a>
+</nav>
+<main>
+    {% block content %}
+        (No Content)
+    {% endblock content %}
+</main>
+</body>
+</html>

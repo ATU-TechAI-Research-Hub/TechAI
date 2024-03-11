@@ -1,1 +1,11 @@
 {% extends 'TechAI/base.html' %}
+
+{% block content %}
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Welcome to TechAI</h1>
+            <p class="col-md-8 fs-4">TechAI is at the forefront of AI research for Arkansas Tech University.</p>
+            <a href="{% url 'TechAI:projects' %}" class="btn btn-primary btn-lg" role="button">Explore Our Projects</a>
+        </div>
+    </div>
+{% endblock %}

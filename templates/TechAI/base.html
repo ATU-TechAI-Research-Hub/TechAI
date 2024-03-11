@@ -1,19 +1,85 @@
+{% load django_bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>TechAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-<nav>
-    <h1>TechAI</h1>
-    <a href="{% url 'TechAI:home' %}">Home</a>
-    <a href="{% url 'TechAI:projects' %}">Projects</a>
+
+{# Navbar #}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a href="{% url 'TechAI:home' %}" class="navbar-brand">TechAI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                aria-controls="navbar" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'TechAI:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'TechAI:projects' %}" class="nav-link">Projects</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
-<main>
+
+{# Alerts #}
+<div class="container mt-3">
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+</div>
+
+<main class="container">
     {% block content %}
         (No Content)
-    {% endblock content %}
+    {% endblock %}
 </main>
+
+{# Footer #}
+
+<footer class="text-center text-lg-start bg-light text-muted">
+    <section class="p-4">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-robot me-3"></i>
+                        TechAI
+                    </h6>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur blanditiis deserunt
+                        doloremque excepturi inventore neque odio porro quas, qui quia quidem, quis repellat sequi
+                        tempora veritatis voluptas! Quia, ratione.</p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-2">Contact</h6>
+                    <hr>
+                    <p>
+                        <i class="fas fa-home me-1"></i>
+                        New York, NY 10012, US
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-1"></i>
+                        <a href="mailto: rghosh@atu.edu">rghosh@atu.edu</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © {% now "Y" %} TechAI: All rights reserved.
+    </div>
+</footer>
 </body>
 </html>

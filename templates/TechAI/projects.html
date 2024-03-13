@@ -16,6 +16,12 @@
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">{{ project.start_date|date }}</small>
+                            &bull;
+                            {% if project.end_date %}
+                                <small class="text-muted">{{ project.end_date|date }}</small>
+                            {% else %}
+                                <small class="text-muted">Ongoing</small>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
